@@ -3,14 +3,14 @@ import uuid
 def signin():
     email = input("Please enter your email id here")
     password = input("Please entr your password here")
-    loginstatus , moderateID = authenticate(email,password)
-    if loginstatus:
-        return True ,moderateID
+    moderateID = authenticate(email,password)
+    if moderateID:
+        return moderateID
     else:
         print("------------------------------")
         print("| Invalid UserID or Password |")
         print("------------------------------")
-        return False , None
+        return False
 
 
 def signup():
@@ -54,10 +54,31 @@ def signup():
     mid = uuid.uuid1()
 
     new_df = pd.DataFrame({"emailID":email,"password":password,"mID":mid},index=[0])
-    df = pd.concat([df,new_df],ignore_index=True)
+    df = pd.concat([df,new_df],ignore_index=True).set_index("mID")
     df.to_csv("./IDPass.csv")
 
-
-
-
     return True
+
+
+
+def authenticate(email, password):
+    df = pd.read_csv("./IDPass.csv")
+    lst = df.loc[df["emailID"] == email,["mID","password"]].values[0]
+    print(lst)
+    mID = lst[0]
+    password_db = lst[1]
+    if password_db == password:
+        return mID
+    else:
+        return False
+
+
+def changePassword(mID):
+    df = pd.read_csv("./IDPass.csv")
+    email = df["password"]
+    if mID:
+        pass
+
+
+
+

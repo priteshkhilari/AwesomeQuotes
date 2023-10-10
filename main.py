@@ -1,5 +1,6 @@
 import sys
 from login import *
+from quotess import *
 def mainfunc():
 
 
@@ -14,15 +15,65 @@ def mainfunc():
         if var == 0:
               terminate()
         elif var == 1:
-            flag , mid = signin()
+            mid = signin()
+            if mid:
+                print("Successfully signed in!")
+                afterAuthentication(mid)
         elif var == 2:
             val = signup()
             if val:
-                print("Successufully signed up!")
+                print("Successfully signed up!")
 
 
-def afterAuthentication():
-    pass
+def afterAuthentication(mID):
+    while True:
+        val = int(input('''Press
+    0. Sign Out
+    1. All Quotes
+    2. My Quotes
+    3. My Favorite Quotes
+    4. Like/Unlike Quote
+    5. New Quote
+    6. Edit Quote
+    7. Delete Quote
+    8. Change Password
+    9. Edit Proﬁle'''))
+
+        if val == 0:
+            return
+        elif val == 1:
+            allquotes(mID)
+        elif val == 2:
+            myquotes(mID)
+        elif val == 3:
+            pass
+        elif val == 4:
+            pass
+        elif val == 5:
+            newquote(mID)
+        elif val == 6:
+            editmyQuote(mID)
+            pass
+        elif val == 7:
+            deleteQuote(mID)
+            pass
+        elif val == 8:
+            changePassword(mID)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 def terminate():
