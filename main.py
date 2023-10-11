@@ -25,7 +25,7 @@ def mainfunc():
 
 def afterAuthentication(mID):
     while True:
-        val = int(input('''Press
+        val = input('''Press
     0. Sign Out
     1. All Quotes
     2. My Quotes
@@ -35,10 +35,16 @@ def afterAuthentication(mID):
     6. Edit Quote
     7. Delete Quote
     8. Change Password
-    9. Edit Proﬁle'''))
+    9. Edit Proﬁle
+    10. View my Details''')
+        if val.isdigit():
+            val = int(val)
+        else:
+            continue
 
         if val == 0:
-            return
+            mID = None
+            return mID
         elif val == 1:
             allquotes(mID)
         elif val == 2:
@@ -63,7 +69,15 @@ def afterAuthentication(mID):
             deleteQuote(mID)
             pass
         elif val == 8:
-            changePassword(mID)
+            mID = changePassword(mID)
+            if mID == None:
+                return
+        elif val == 9:
+            mID = editProfile(mID)
+            if mID == None:
+                return
+        elif val == 10:
+            mydetails(mID)
 
 
 

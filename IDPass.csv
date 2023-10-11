@@ -1,10 +1,2 @@
-mID,emailID,password
-56f3d07e-675a-11ee-8612-ff5ae65b72d3,pritesh,Hello@123456
-d6bc21d0-675a-11ee-8612-ff5ae65b72d3,5,9892901083@a
-db31d35e-6764-11ee-8612-ff5ae65b72d3,prit,D@123546789
-ed8616dc-6764-11ee-8612-ff5ae65b72d3,lrb,lrb123456789!
-f894cdde-6764-11ee-8612-ff5ae65b72d3,dsfg,adf52@4887514dfasd
-547eee36-6765-11ee-8612-ff5ae65b72d3,Psdfsad,asdf2@q234q2345456
-5dc2bb76-6765-11ee-8612-ff5ae65b72d3,Pasdfasdfasdf,P@1456dsfsadgfafrga
-21c2926c-6793-11ee-8612-ff5ae65b72d3,dilip,D!1234567
-8f09ff42-67a0-11ee-8612-ff5ae65b72d3,new,new.123456
+mID,Unnamed: 0,emailID,password,mobile,f_name,l_name
+0b59be4c-67ed-11ee-a66c-db137db77dfa,0,pritesh@gmail.com,Hello@1ell,1234567890,Rdb,Bandre
