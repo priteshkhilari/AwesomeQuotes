@@ -2,7 +2,7 @@ import pandas as pd
 import uuid
 def signin():
     email = input("Please enter your email id here")
-    password = input("Please entr your password here")
+    password = input("Please enter your password here")
     moderateID = authenticate(email,password)
     if moderateID:
         return moderateID
@@ -64,7 +64,7 @@ def signup():
 def authenticate(email, password):
     df = pd.read_csv("./IDPass.csv")
     lst = df.loc[df["emailID"] == email,["mID","password"]].values[0]
-    print(lst)
+    # print(lst)
     mID = lst[0]
     password_db = lst[1]
     if password_db == password:
@@ -74,11 +74,24 @@ def authenticate(email, password):
 
 
 def changePassword(mID):
+    passw = input("please authenticate yourself\nPlease enter password here")
     df = pd.read_csv("./IDPass.csv")
-    email = df["password"]
-    if mID:
-        pass
+    email = df.loc[df["mID"] ==mID,"emailID" ].values[0]
 
+    mid = authenticate(email,passw)
+    if mid == mID:
+        while True:
+            new_password1 = input("Please enter new password")
+            new_password2 = input("Please confirm new password")
+            if new_password2 == new_password1:
+                df.loc[df[df["mID"] == mid].index, "password"] = new_password1
+                break
+            else:
+                print("Password doesnot matched please try again")
+                continue
+        df = df.set_index("mID")
+        df.to_csv("./IDPass.csv")
+        return
 
 
 

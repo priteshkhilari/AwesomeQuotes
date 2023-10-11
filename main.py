@@ -2,8 +2,6 @@ import sys
 from login import *
 from quotess import *
 def mainfunc():
-
-
     flag = False
     while True:
         var = int(input('''Welcome to Moderate
@@ -46,8 +44,15 @@ def afterAuthentication(mID):
         elif val == 2:
             myquotes(mID)
         elif val == 3:
+            x = myfavourite_quote(mID)
+            print(x[["author" , "text"]])
             pass
         elif val == 4:
+            newval   = int(input("Press 1 to like a quote\n Press 2 to unlike"))
+            if newval == 1:
+                likeQuote(mID)
+            elif newval == 2:
+                unlikeQuote(mID)
             pass
         elif val == 5:
             newquote(mID)
